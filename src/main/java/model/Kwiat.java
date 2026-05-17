@@ -1,23 +1,42 @@
 package model;
-/*
-* Klasa reprezentująca kwaity.
-* Dziedziczy po klasie Obiekt.
+
+/**
+ * Klasa reprezentująca kwaity.
+ * Dziedziczy po klasie Obiekt.
+ * Służy za punkt z którego robotnica może pobrać nektar.
  */
 
 public class Kwiat extends Obiekt{
+    /** Ilość możliwego do zebrania nektaru z danego kwiatu */
     private int iloscNektaru;
+    /** Określna czy kwait jest zebrany */
     private boolean Zebrany;
 
+    /**
+     * Tworzy nowy kwiat na podanych współrzędnych oraz z konkretną ilościa nektaru.
+     * Domyślnie kwait nie jest zebrany.
+     *
+     * @param x
+     * @param y
+     * @param poczatkowyNektar
+     */
     public Kwiat(int x,int y, int poczatkowyNektar){
         super(x,y);
         this.iloscNektaru = poczatkowyNektar;
         this.Zebrany = false;
     }
 
+    /**
+     * Sprawdza, czy kwait jest zebrany.
+     * @return true jeżeli jest zebrany, false jeżeli nie jest jeszcze zebrany
+     */
     public boolean czyZebrany(){
         return Zebrany;
     }
 
+    /**
+     * Zmienia stan zebrany.
+     */
     public void setZebrany(){
         this.Zebrany = true;
     }
