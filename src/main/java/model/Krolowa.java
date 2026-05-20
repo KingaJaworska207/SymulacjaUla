@@ -15,9 +15,10 @@ public class Krolowa extends Pszczola{
      * @param x współrzędna x ula
      * @param y współrzędna y ula
      * @param ul obiekt ula, do którego należy królowa
+     * @param plansza referencja do planszy
      */
-    public Krolowa(int x, int y, Ul ul) {
-        super(x, y, ul);
+    public Krolowa(int x, int y, Ul ul, Plansza plansza) {
+        super(x, y, ul, plansza);
     }
 
     /**
@@ -33,13 +34,44 @@ public class Krolowa extends Pszczola{
         if(ul !=null && ul.getLiczbaPopulacji() < ul.getIloscMiodu()){
 
             // stworzenie nowej pszczoły (Robotnica/Strażniczka)
+            Pszczola nowaPszczola = stworzNowaPszczole();
 
             ul.zwiekszPopulacje();
 
-            //return nowaPszczola;
+            if (plansza != null && nowaPszczola != null) {
+                plansza.dodajOwada(nowaPszczola);
+            }
+
+            return nowaPszczola;
         }
         // Gdy warunki nie zostały spełnione, reprodukcja się nie powiodła
         return null;
+    }
+
+    /**
+     * Tworzy nową pszczołę określonego typu.
+     * 70% szans na Robotnicę, 30% szans na Strażniczkę.
+     *
+     * @return nowo utworzony obiekt pszczoły
+     */
+    private Pszczola stworzNowaPszczole() {
+        Ul ul = getMojUl();
+        double los = Math.random();
+
+        // Pobranie pozycji ula
+        int ulX = ul.getX();
+        int ulY = ul.getY();
+
+        // 70% szans na robotnicę, 30% na strażniczkę
+        if (los < 0.7) {
+            Robotnica robotnica = new Robotnica(ulX, ulY, ul, plansza);
+            robotnica.setPlansza(plansza);
+            return robotnica;
+        } else {
+            Strazniczka strazniczka = new Strazniczka(ulX, ulY, ul, plansza);
+            strazniczka.setPlansza(plansza);
+            return strazniczka;
+        }
     }
 
     /**
@@ -47,7 +79,7 @@ public class Krolowa extends Pszczola{
      */
     @Override
     public void wykonajAkcje(){
-        // wywołanie reprodukcji
+        //Próba reprodukcji
     }
 
     /**

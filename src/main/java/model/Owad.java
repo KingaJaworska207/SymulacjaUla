@@ -10,15 +10,37 @@ public abstract class Owad extends Obiekt {
     /** Określa stan życia owada */
     protected boolean Zyje;
 
+    /** Referencja do planszy */
+    protected Plansza plansza;
+
     /**
      * Inicjuje owada na podanych współrzędnych i ustala jego stan jako żywy.
      *
      * @param x współrzędna x
      * @param y współrzędna y
+     * @param plansza referencja do planszy
      */
-    public Owad(int x, int y){
+    public Owad(int x, int y, Plansza plansza){
         super(x, y);
         this.Zyje = true;
+        this.plansza = plansza;
+    }
+
+    /**
+     * Zwraca referencję do planszy.
+     *
+     * @return obiekt planszy
+     */
+    public Plansza getPlansza() {
+        return plansza;
+    }
+
+    /**
+     * Ustawia referencję do planszy.
+     * @param plansza obiekt planszy
+     */
+    public void setPlansza(Plansza plansza) {
+        this.plansza = plansza;
     }
 
     /**

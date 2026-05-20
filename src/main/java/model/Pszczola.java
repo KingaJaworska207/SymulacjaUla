@@ -15,9 +15,10 @@ public abstract class Pszczola extends Owad{
      * @param x współrzędna x
      * @param y współrzędna y
      * @param ul obiekt ula, do którego należy dana pszczoła
+     * @param plansza referencja do planszy
      */
-    public Pszczola(int x, int y, Ul ul){
-        super(x, y);
+    public Pszczola(int x, int y, Ul ul, Plansza plansza) {
+        super(x, y, plansza);
         this.mojUl = ul;
     }
 
@@ -52,6 +53,7 @@ public abstract class Pszczola extends Owad{
         ruch
         wykonanie akcji
         */
+        wykonajAkcje();
     }
 
 }

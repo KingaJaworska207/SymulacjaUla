@@ -15,9 +15,10 @@ public class Truten extends Pszczola{
      * @param x współrzędna x ula
      * @param y współrzędna y ula
      * @param ul obiekt ula, do którego należy trutreń
+     * @param plansza referencja do planszy
      */
-    public Truten(int x,int y, Ul ul){
-        super(x, y, ul);
+    public Truten(int x,int y, Ul ul, Plansza plansza) {
+        super(x, y, ul, plansza);
     }
 
     /**
@@ -33,6 +34,7 @@ public class Truten extends Pszczola{
     @Override
     public void wykonajAkcje() {
         // wywołanie jedzenia
+        jedz();
     }
 
     /**

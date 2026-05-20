@@ -27,6 +27,28 @@ public class Kwiat extends Obiekt{
     }
 
     /**
+     * Pobiera nektar z kwiatu i oznacza go jako zebrany.
+     *
+     * @return ilość pobranego nektaru
+     */
+    public int pobierzNektar() {
+
+        if (this.czyZebrany()) {
+            return 0;
+        }
+
+        // Zapisujemy ilość nektaru do zwrócenia
+        int pobranyNektar = this.iloscNektaru;
+
+        // Zerujemy zapas nektaru w kwiecie i trwale oznaczamy go jako zebrany
+        this.iloscNektaru = 0;
+        this.setZebrany();
+
+        // Zwracamy pobraną wartość
+        return pobranyNektar;
+    }
+
+    /**
      * Sprawdza, czy kwait jest zebrany.
      * @return true jeżeli jest zebrany, false jeżeli nie jest jeszcze zebrany
      */

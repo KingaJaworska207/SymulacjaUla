@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Random;
+
 /**
  * Klasa reprezentująca szerszenia.
  * Dziedziczy po klasie Owad.
@@ -8,22 +10,60 @@ package model;
 
 public class Szerszen extends Owad{
 
+    /** Generator liczb losowych */
+    private Random random;
+
+    /** Szansa na wygraną szerszenia w starciu ze strażniczką (50% = 0.5) */
+    private static final double szansaWygranej = 0.5;
+
     /**
      * Tworzy nowego szersznia na podanych współrzędnych.
      *
      * @param x współrzędna x
      * @param y współrzędna y
+     * @param plansza referencja do planszy
      */
-    public Szerszen(int x, int y){
-        super(x, y);
+    public Szerszen(int x, int y, Plansza plansza){
+        super(x, y, plansza);
+    }
+
+    /**
+     * Sprawdza czy na obecnej pozycji znajduje się pszczoła.
+     *
+     * @return pszczoła znajdująca się na tej samej pozycji lub null
+     */
+    public Pszczola napotkaniePszczoly(){
+        //sprawdzenie czy na polu na ktorym znajduje się szerszeń jest też pszczoła
+        return null;
     }
 
     /**
      * W przypadku napotkania pszczoły, wykonuje atak.
+     * Logika ataku:
+     * - Jeśli pszczoła to Robotnica -> szerszeń zawsze wygrywa
+     * - Jeśli pszczoła to Strażniczka -> 50% szans na wygraną
+     * - W przypadku przegranej ze Strażniczką -> szerszeń ginie
      */
-    public void atakuj(){
-        // atak na napotkaną pszczołę
-        // (w przypadku napotkania strażniczki 50/50 szansa na wygrannie starcia?)
+    public void atakuj(Pszczola pszczola){
+        if (pszczola == null) {
+            return;
+        }
+        // Rozróżnienie typu pszczoły
+        if (pszczola instanceof Robotnica) {
+            // Atak na robotnicę - zawsze udany
+            pszczola.zgin();
+        }
+        else if (pszczola instanceof Strazniczka) {
+            // Atak na strażniczkę - 50% szans
+            double los = random.nextDouble();
+            if (los < szansaWygranej) {
+                // Szerszeń wygrywa - strażniczka ginie
+                pszczola.zgin();
+            } else {
+                // Szerszeń przegrywa - sam ginie
+                this.zgin();
+            }
+        }
     }
 
     /**

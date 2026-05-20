@@ -62,6 +62,18 @@ public class Plansza {
     }
 
     /**
+     * Dodaje nowego owada do listy aktywnych owadów na planszy.
+     * * @param owad obiekt owada (np. nowo narodzona pszczoła), który ma zostać dodany do symulacji
+     */
+    public void dodajOwada(Owad owad) {
+        // Zabezpieczenie przed dodaniem "pustego" obiektu
+        if (owad != null) {
+            // Dodajemy owada do naszej listy
+            this.aktywneOwady.add(owad);
+        }
+    }
+
+    /**
      * Usuwa wskazany obiekt z siatki planszy.
      * Metoda wywoływana w przypadku zebrania nektaru z kwiatu lub wyeliminowania owada z symulacji.
      *
