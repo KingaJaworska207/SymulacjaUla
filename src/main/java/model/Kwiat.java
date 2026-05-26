@@ -10,7 +10,7 @@ public class Kwiat extends Obiekt{
     /** Ilość możliwego do zebrania nektaru z danego kwiatu */
     private int iloscNektaru;
     /** Określna czy kwait jest zebrany */
-    private boolean Zebrany;
+    private boolean zebrany;
 
     /**
      * Tworzy nowy kwiat na podanych współrzędnych oraz z konkretną ilościa nektaru.
@@ -23,7 +23,7 @@ public class Kwiat extends Obiekt{
     public Kwiat(int x,int y, int poczatkowyNektar){
         super(x,y);
         this.iloscNektaru = poczatkowyNektar;
-        this.Zebrany = false;
+        this.zebrany = false;
     }
 
     /**
@@ -53,13 +53,13 @@ public class Kwiat extends Obiekt{
      * @return true jeżeli jest zebrany, false jeżeli nie jest jeszcze zebrany
      */
     public boolean czyZebrany(){
-        return Zebrany;
+        return zebrany;
     }
 
     /**
      * Zmienia stan zebrany.
      */
     public void setZebrany(){
-        this.Zebrany = true;
+        this.zebrany = true;
     }
 }

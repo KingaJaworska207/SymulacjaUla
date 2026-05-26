@@ -1,5 +1,9 @@
 package kontroler;
 
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -15,6 +19,16 @@ public class EksporterCSV {
      * @param nazwaPliku nazwa pliku docelowego, w którym zostaną zapisane dane
      */
     public void eksportujDoPliku(List<String> wierszeDanych, String nazwaPliku){
-        // zapis danych
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nazwaPliku))) {
+
+            for (String wiersz : wierszeDanych) {
+                writer.write(wiersz);
+                writer.newLine();
+            }
+            System.out.println("Dane z symulacji zostaly pomyslnie zapisane do pliku: " + nazwaPliku);
+
+        } catch (IOException e) {
+            System.err.println("Wystapil blad podczas zapisu pliku CSV: " + e.getMessage());
+        }
     }
 }

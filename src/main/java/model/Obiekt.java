@@ -6,9 +6,9 @@ package model;
  */
 public abstract class Obiekt {
     /** Współrzędna pozioma obiektu na planszy */
-    protected int x;
+    private int x;
     /** Współrzędna pionowa obiektu na planszy */
-    protected int y;
+    private int y;
 
     /**
      * Nadaje współrzędne nowemu obiektowi na planszy

@@ -29,17 +29,16 @@ public class Truten extends Pszczola{
     }
 
     /**
-     * ykonuje przypisaną dla trutnia akcję w danej turze.
+     * Wykonuje przypisaną dla trutnia akcję w danej turze.
      */
     @Override
     public void wykonajAkcje() {
-        // wywołanie jedzenia
         jedz();
     }
 
     /**
      * Zmienia pozycję pszczoły na planszy.
-     * Metoda celowo zostaje pusta, ponieważ trutrń nigdy nie opuszcza ula.
+     * Metoda celowo zostaje pusta, ponieważ truteń nigdy nie opuszcza ula.
      *
      * @param x nowa współrzędna x, na którą ma przesunąć się owad (ignorowana)
      * @param y nowa współrzędna y, na którą ma przesunąć się owad (ignorowana)

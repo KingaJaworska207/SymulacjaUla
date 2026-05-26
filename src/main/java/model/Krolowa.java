@@ -30,6 +30,7 @@ public class Krolowa extends Pszczola{
     public Pszczola reprodukcja(){
         // pobranie ula
         Ul ul = getMojUl();
+
         // logika reprodukcji
         if(ul !=null && ul.getLiczbaPopulacji() < ul.getIloscMiodu()){
 
@@ -38,8 +39,8 @@ public class Krolowa extends Pszczola{
 
             ul.zwiekszPopulacje();
 
-            if (plansza != null && nowaPszczola != null) {
-                plansza.dodajOwada(nowaPszczola);
+            if (getPlansza() != null && nowaPszczola != null) {
+                getPlansza().dodajOwada(nowaPszczola);
             }
 
             return nowaPszczola;
@@ -64,13 +65,10 @@ public class Krolowa extends Pszczola{
 
         // 70% szans na robotnicę, 30% na strażniczkę
         if (los < 0.7) {
-            Robotnica robotnica = new Robotnica(ulX, ulY, ul, plansza);
-            robotnica.setPlansza(plansza);
-            return robotnica;
+             new Robotnica(ulX, ulY, ul, getPlansza());
+            return new Robotnica(ulX, ulY, ul, getPlansza());
         } else {
-            Strazniczka strazniczka = new Strazniczka(ulX, ulY, ul, plansza);
-            strazniczka.setPlansza(plansza);
-            return strazniczka;
+            return new Strazniczka(ulX, ulY, ul, getPlansza());
         }
     }
 
@@ -79,7 +77,7 @@ public class Krolowa extends Pszczola{
      */
     @Override
     public void wykonajAkcje(){
-        //Próba reprodukcji
+        reprodukcja();
     }
 
     /**

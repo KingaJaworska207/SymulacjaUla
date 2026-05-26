@@ -25,6 +25,7 @@ public class Szerszen extends Owad{
      */
     public Szerszen(int x, int y, Plansza plansza){
         super(x, y, plansza);
+        this.random = new Random();
     }
 
     /**
@@ -33,7 +34,17 @@ public class Szerszen extends Owad{
      * @return pszczoła znajdująca się na tej samej pozycji lub null
      */
     public Pszczola napotkaniePszczoly(){
-        //sprawdzenie czy na polu na ktorym znajduje się szerszeń jest też pszczoła
+        if (getPlansza() == null) {
+            return null;
+        }
+
+        for (Owad owad : getPlansza().getAktywneOwady()) {
+            if (owad instanceof Pszczola && owad.czyZyje()) {
+                if (this.getX() == owad.getX() && this.getY() == owad.getY()) {
+                    return (Pszczola) owad;
+                }
+            }
+        }
         return null;
     }
 
@@ -52,6 +63,7 @@ public class Szerszen extends Owad{
         if (pszczola instanceof Robotnica) {
             // Atak na robotnicę - zawsze udany
             pszczola.zgin();
+            getPlansza().usunObiekt(pszczola);
         }
         else if (pszczola instanceof Strazniczka) {
             // Atak na strażniczkę - 50% szans
@@ -59,9 +71,11 @@ public class Szerszen extends Owad{
             if (los < szansaWygranej) {
                 // Szerszeń wygrywa - strażniczka ginie
                 pszczola.zgin();
+                getPlansza().usunObiekt(pszczola);
             } else {
                 // Szerszeń przegrywa - sam ginie
                 this.zgin();
+                getPlansza().usunObiekt(this);
             }
         }
     }
@@ -74,17 +88,94 @@ public class Szerszen extends Owad{
      */
     @Override
     public void ruch(int x, int y) {
-        this.setX(x);
-        this.setY(y);
+        if (x >= 0 && x < getPlansza().getSzerokosc() && y >= 0 && y < getPlansza().getWysokosc()) {
+            this.setX(x);
+            this.setY(y);
+        }
     }
 
     /**
      * Przeprowadza pełną turę szerszenia.
-     * Obejmuje to wykonanie ruchu oraz specyficznej akcji.
+     * - jeżeli napotkał pszczołe to atakuje
+     * - jeżeli jest na tym samym polu pszczoła to szuka robotnicy i idzie w jej kierunku
+     * - jeżeli nie ma robotnic to robi losowy ruch     *
      */
     @Override
     public void wykonajTure(){
-        // losowy ruch
-        // atak jeżeli napotka pszczołę
+        Pszczola napotkanaPszczola = napotkaniePszczoly();
+
+        if (napotkanaPszczola != null) {
+            atakuj(napotkanaPszczola);
+        } else {
+            Robotnica cel = znajdzRobotnice();
+
+            if (cel != null) {
+                zrobKrokWStrone(cel.getX(), cel.getY());
+            } else {
+                ruchLosowy();
+            }
+        }
+    }
+
+    /**
+     * Przesuwa szerszenia o jeden krok w kierunku celu.
+     *
+     * @param celX współrzędna x celu
+     * @param celY współrzędna y celu
+     */
+    private void zrobKrokWStrone(int celX, int celY) {
+        int noweX = this.getX();
+        int noweY = this.getY();
+
+        if (this.getX() < celX) noweX++;
+        else if (this.getX() > celX) noweX--;
+
+        if (this.getY() < celY) noweY++;
+        else if (this.getY() > celY) noweY--;
+
+        ruch(noweX, noweY);
+    }
+
+    /**
+     * Znajduje najbliższą żywą robotnicę na planszy.
+     *
+     * @return najbliższa robotnica lub null
+     */
+    private Robotnica znajdzRobotnice() {
+        Robotnica najblizsza = null;
+        double minimalnaOdleglosc = Double.MAX_VALUE;
+
+        for (Owad owad : getPlansza().getAktywneOwady()) {
+            if (owad instanceof Robotnica && owad.czyZyje()) {
+                double odleglosc = obliczOdleglosc(owad.getX(), owad.getY());
+                if (odleglosc < minimalnaOdleglosc) {
+                    minimalnaOdleglosc = odleglosc;
+                    najblizsza = (Robotnica) owad;
+                }
+            }
+        }
+        return najblizsza;
+    }
+
+    /**
+     * Oblicza odległość do podanych współrzędnych.
+     *
+     * @param cx współrzędna x celu
+     * @param cy współrzędna y celu
+     * @return odległość euklidesowa
+     */
+    private double obliczOdleglosc(int cx, int cy) {
+        int dx = this.getX() - cx;
+        int dy = this.getY() - cy;
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    /**
+     * Wykonuje losowy ruch.
+     */
+    private void ruchLosowy() {
+        int noweX = this.getX() + random.nextInt(3) - 1;
+        int noweY = this.getY() + random.nextInt(3) - 1;
+        ruch(noweX, noweY);
     }
 }

@@ -6,6 +6,7 @@ package model;
  */
 
 public abstract class Pszczola extends Owad{
+
     /** Referencja do ula, do którego należy dana pszczoła. */
     private Ul mojUl;
 
@@ -24,12 +25,16 @@ public abstract class Pszczola extends Owad{
 
     /**
      * Pobiera obiekt ula,do którego należy dana pszczoła.
+     *
      * @return obiekt ula,do którego należy dana pszczoła
      */
     public Ul getMojUl(){
         return this.mojUl;
     }
 
+    /**
+     * Zmienia stan pszczoły na martwy i aktualizuje populację w ulu.
+     */
     @Override
     public void zgin(){
         super.zgin();
@@ -40,6 +45,7 @@ public abstract class Pszczola extends Owad{
 
     /**
      * Wykonuje akcje specyficzne dla danej pszczoły.
+     * Metoda do implementacji w klasach pochodnych.
      */
     public abstract void wykonajAkcje();
 

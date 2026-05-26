@@ -8,10 +8,10 @@ package model;
 
 public abstract class Owad extends Obiekt {
     /** Określa stan życia owada */
-    protected boolean Zyje;
+    private boolean zyje;
 
     /** Referencja do planszy */
-    protected Plansza plansza;
+    private Plansza plansza;
 
     /**
      * Inicjuje owada na podanych współrzędnych i ustala jego stan jako żywy.
@@ -22,7 +22,7 @@ public abstract class Owad extends Obiekt {
      */
     public Owad(int x, int y, Plansza plansza){
         super(x, y);
-        this.Zyje = true;
+        this.zyje = true;
         this.plansza = plansza;
     }
 
@@ -37,6 +37,7 @@ public abstract class Owad extends Obiekt {
 
     /**
      * Ustawia referencję do planszy.
+     *
      * @param plansza obiekt planszy
      */
     public void setPlansza(Plansza plansza) {
@@ -63,13 +64,13 @@ public abstract class Owad extends Obiekt {
      * @return true jeśli owad jest żywy, false jeżeli jest martwy
      */
     public boolean czyZyje() {
-        return Zyje;
+        return zyje;
     }
 
     /**
      * Zmienia stan owada na martwy.
      */
     public void zgin(){
-        this.Zyje = false;
+        this.zyje = false;
     }
 }

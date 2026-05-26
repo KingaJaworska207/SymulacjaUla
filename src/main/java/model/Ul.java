@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Klasa reprezentująca ul.
  * Dziedziczy po klasie Obiekt.
- * Przechowuje zasoby miodu, informacje o wielkości populacji oraz listę robotnic.
+ * Przechowuje zasoby miodu, informacje o wielkości populacji.
  */
 
 public class Ul extends Obiekt{
@@ -14,9 +14,6 @@ public class Ul extends Obiekt{
     private int iloscMiodu;
     /** Aktualna ilość pszczół w populacjii. */
     private int populacja;
-
-    /** Lista pozwalająca na przechowywanie i zarządzanie wszystkimi robotnicami     */
-    private List<Robotnica> listaRobotnic;
 
     /**
      * Inicjalizuje ul na planszy wraz ze startowymi zapasami miodu i populacją.
@@ -30,7 +27,6 @@ public class Ul extends Obiekt{
         super(x, y);
         this.iloscMiodu = poczatkowyMiod;
         this.populacja = poczatkowaPopulacja;
-        this.listaRobotnic = new ArrayList<>();
     }
 
     /**

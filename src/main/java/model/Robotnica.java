@@ -13,10 +13,6 @@ public class Robotnica extends Pszczola{
     /** Ilość zebranego nektaru, który robotnica ma aktualnie przy sobie */
     private int iloscNektaru;
 
-    /** Określa czy robotnica jest w ulu */
-    private boolean wUlu;
-
-
     /**
      * Tworzy nową robotnicę na podanych współrzędnych planszy i przypisuje ją do ula.
      * Domyślnie nowa robotnica nie ma przy sobie nektaru.
@@ -30,7 +26,6 @@ public class Robotnica extends Pszczola{
         super(x, y, ul, plansza);
         this.maNektar = false;
         this.iloscNektaru = 0;
-        this.wUlu = true;
     }
 
     /**
@@ -44,6 +39,7 @@ public class Robotnica extends Pszczola{
      * @return ilość zebranego nektaru
      */
     public int zbierzNektar(Kwiat kwiat){
+
         // Sprawdzenie czy można zebrać nektar
         if (kwiat == null || maNektar || kwiat.czyZebrany()) {
             return 0;
@@ -85,22 +81,50 @@ public class Robotnica extends Pszczola{
         }
 
         // Przekazanie nektaru do ula
-        ul.dodajMiod(iloscNektaru);
+        int przekazanaIlosc = iloscNektaru;
+        ul.dodajMiod(przekazanaIlosc);
 
 
         // Resetowanie stanu robotnicy
         this.iloscNektaru = 0;
         this.maNektar = false;
 
-        return iloscNektaru;
+        return przekazanaIlosc;
     }
+
+
 
     /**
      * Wykonanie przypisanej dla robotnicy akcji w danej turze.
+     *  - jeżeli ma nektar i jest w ulu to przekazuje nektar
+     *  - jeżeli ma nektar ale nie jest w ulu to robi krok w stronę ula
+     *  - jeżeli nie ma nektaru szuka kwiatka
+     *  - jak znajdzie kwiat zbiera nektar
+     *  - jeżeli nie ma nektaru a na planszy nie ma kwiatów wykonuje losowy ruch     *
      */
     @Override
     public void wykonajAkcje(){
-        // działania robotnicy
+        if(maNektar){
+            Ul ul = getMojUl();
+            if (this.getX() ==  ul.getX() || this.getY() == ul.getY()) {
+                przekazNektar();
+            } else {
+                zrobKrokWStrone(ul.getX(), ul.getY());
+            }
+        } else {
+            Kwiat cel = znajdzKwiat();
+
+            if (cel != null) {
+                if (this.getX() == cel.getX() || this.getY() == cel.getY()) {
+                    zbierzNektar(cel);
+                    getPlansza().usunObiekt(cel); // usuwamy zebranhy kwiat z planszy
+                } else {
+                    zrobKrokWStrone(cel.getX(), cel.getY());
+                }
+            } else {
+                ruchLosowy();
+            }
+        }
     }
 
     /**
@@ -111,7 +135,74 @@ public class Robotnica extends Pszczola{
      */
     @Override
     public void ruch(int x, int y){
+        if (x >= 0 && x < getPlansza().getSzerokosc() && y >= 0 && y < getPlansza().getWysokosc()) {}
         this.setX(x);
         this.setY(y);
+    }
+    /**
+     * Przesuwa robotnicę o jeden krok w kierunku celu.
+     *
+     * @param celX współrzędna x celu
+     * @param celY współrzędna y celu
+     */
+    private void zrobKrokWStrone(int celX, int celY){
+        int nowyX = this.getX();
+        int nowyY = this.getY();
+
+        if (nowyX < celX) nowyX++;
+        else if (nowyX > celX) nowyX--;
+
+        if (nowyY < celY) nowyY++;
+        else if (nowyY > celY) nowyY--;
+
+        ruch(nowyX, nowyY);
+    }
+
+    /**
+     * Znajduje najbliższy niezebrany kwiat na planszy.
+     *
+     * @return najbliższy kwiat lub null
+     */
+    private Kwiat znajdzKwiat(){
+        if (getPlansza() == null) {
+            return null;
+        }
+
+        Kwiat najblizszyKwiat = null;
+        double minimalnaOdleglosc = Double.MAX_VALUE;
+
+        for (Kwiat kwiat : getPlansza().getKwiaty()) {
+            if (kwiat != null && !kwiat.czyZebrany()) {
+                double odleglosc = obliczOdleglosc(kwiat.getX(), kwiat.getY());
+                if (odleglosc < minimalnaOdleglosc) {
+                    minimalnaOdleglosc = odleglosc;
+                    najblizszyKwiat = kwiat;
+                }
+            }
+        }
+        return najblizszyKwiat;
+    }
+
+    /**
+     * Oblicza odległość do podanych współrzędnych.
+     *
+     * @param cx współrzędna x celu
+     * @param cy współrzędna y celu
+     * @return odległość euklidesowa
+     */
+    private double obliczOdleglosc(int cx, int cy) {
+        int dx = this.getX() - cx;
+        int dy = this.getY() - cy;
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    /**
+     * Wykonuje losowy ruch.
+     */
+    private void ruchLosowy() {
+        // umożliwia losowy ruch w każdą stronę (też na skosy) lub pozostanie na miejscu
+        int noweX = this.getX() + (int)(Math.random() * 3) - 1;
+        int noweY = this.getY() + (int)(Math.random() * 3) - 1;
+        ruch(noweX, noweY);
     }
 }
