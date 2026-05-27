@@ -54,6 +54,8 @@ public class Szerszen extends Owad{
      * - Jeśli pszczoła to Robotnica -> szerszeń zawsze wygrywa
      * - Jeśli pszczoła to Strażniczka -> 50% szans na wygraną
      * - W przypadku przegranej ze Strażniczką -> szerszeń ginie
+     *
+     * @param pszczola obiekt pszczoły
      */
     public void atakuj(Pszczola pszczola){
         if (pszczola == null) {

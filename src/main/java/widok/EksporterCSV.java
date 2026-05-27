@@ -9,7 +9,6 @@ import java.util.List;
 /**
  * Klasa odpowiedzialna za eksportowanie danych symulacji do pliku CSV.
  */
-
 public class EksporterCSV {
 
     /**

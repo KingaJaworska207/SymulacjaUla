@@ -28,6 +28,9 @@ public class RejestratorStatystyk {
     /** Przechowuje stan populacji z ostatniej zarejestrowanej tury */
     private int ostatniaPopulacja;
 
+    /**
+     * Tworzy rejestrator do statystyk
+     */
     public RejestratorStatystyk() {
         this.historiaDanych = new ArrayList<>();
         this.liczbaZgonow = 0;
@@ -41,6 +44,9 @@ public class RejestratorStatystyk {
     /**
      * Zapisuje statystyki i bieżące dane z zakończonej tury.
      * Metoda przygotowana do współpracy z eksporterem danych do pliku CSV.
+     *
+     * @param tura aktualny numer tury
+     * @param plansza plansza
      */
     public void rejestrujDaneTury(int tura, Plansza plansza) {
         int lRobotnic = 0, lStrazniczek = 0, lTrutni = 0, lKrolowych = 0, lSzerszeni = 0;
@@ -78,6 +84,11 @@ public class RejestratorStatystyk {
         this.historiaDanych.add(wiersz);
     }
 
+    /**
+     * Generuje podsumowanie symulacjii
+     *
+     * @param tura numer ostatniej tury
+     */
     public void podsumowanieSymulacji(int tura) {
 
         System.out.println();
@@ -92,7 +103,7 @@ public class RejestratorStatystyk {
 
     /**
      * Zapisuje zebraną historię do pliku CSV przy użyciu EksporterCSV.
-     * * @param nazwaPliku nazwa docelowego pliku
+     * @param nazwaPliku nazwa docelowego pliku
      */
     public void zapiszDoPliku(String nazwaPliku) {
         EksporterCSV eksporter = new EksporterCSV();

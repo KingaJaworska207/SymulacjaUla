@@ -16,9 +16,9 @@ public class Kwiat extends Obiekt{
      * Tworzy nowy kwiat na podanych współrzędnych oraz z konkretną ilościa nektaru (1 lub 2).
      * Domyślnie kwait nie jest zebrany.
      *
-     * @param x
-     * @param y
-     * @param poczatkowyNektar
+     * @param x współrzędna x
+     * @param y współrzędna y
+     * @param poczatkowyNektar ilość nektaru
      */
     public Kwiat(int x,int y, int poczatkowyNektar){
         super(x,y);

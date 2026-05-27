@@ -54,6 +54,12 @@ public class Plansza {
     /**
      * Generuje początkowe ustawienie elementów na planszy.
      * Rozmieszcza startowe obiekty, takie jak ul, pierwsze kwiaty i początkową populację owadów.
+     *
+     * @param robotnice ilość robotnic
+     * @param trutnie ilość trutni
+     * @param strazniczki ilość strażniczek
+     * @param szerszenie ilośćszerszeni
+     * @param miod ilość miodu
      */
     public void generujPoczatkowaPlansze(int robotnice, int trutnie, int strazniczki, int szerszenie, int miod){
         // Wyznaczenie środka planszy i stworzenie Ula
@@ -150,7 +156,7 @@ public class Plansza {
 
     /**
      * Dodaje nowego owada do listy aktywnych owadów na planszy.
-     * * @param owad obiekt owada (np. nowo narodzona pszczoła), który ma zostać dodany do symulacji
+     * @param owad obiekt owada (np. nowo narodzona pszczoła), który ma zostać dodany do symulacji
      */
     public void dodajOwada(Owad owad) {
         // Zabezpieczenie przed dodaniem "pustego" obiektu

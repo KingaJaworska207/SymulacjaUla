@@ -38,11 +38,18 @@ public class SystemSymulacji {
 
 
     /**
-     * Inicjalizuje system symulacji.
-     * Ustawia początkowe statystyki na zero.
-     * Tworzy nową planszę o domyślnych wymairach (np. 21x21)
+     *  Inicjalizuje system symulacji.
+     *  Ustawia początkowe statystyki na zero.
+     *  Tworzy nową planszę o domyślnych wymairach
      *
-     * @param prawdopodobienstwo szansa na pojawienie się nowego kwiatka na planszy w danej turze
+     * @param prawdopodobienstwo prawdopodobieństwo pojawienia się kwaitka
+     * @param czestotliwoscSzerszeni co ile tur pojawia się nowy szerszeń
+     * @param maksymalnaLiczbaTur czas trwania symulacji (w turach)
+     * @param poczRobotnice ilość robotnic
+     * @param poczTrutnie ilość trutni
+     * @param poczStrazniczki ilość starżniczek
+     * @param poczSzerszenie ilość szerszeni
+     * @param poczMiod ilość miodu w ulu
      */
     public SystemSymulacji(double prawdopodobienstwo,int czestotliwoscSzerszeni, int maksymalnaLiczbaTur, int poczRobotnice, int poczTrutnie, int poczStrazniczki, int poczSzerszenie, int poczMiod){
         this.tura = 0;
