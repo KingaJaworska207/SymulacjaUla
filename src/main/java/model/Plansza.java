@@ -157,8 +157,9 @@ public class Plansza {
         if (owad != null) {
             // Dodajemy owada do naszej listy
             this.aktywneOwady.add(owad);
-            if( owad instanceof Pszczola ){}
-            this.narodzinyWTejTurze++;
+            if( owad instanceof Pszczola ){
+                this.narodzinyWTejTurze++;
+            }
         }
     }
 
@@ -178,7 +179,7 @@ public class Plansza {
             if(aktywneOwady.remove(obiekt)){
                 if(obiekt instanceof Pszczola ){
                     this.zgonyWTejTurze++;
-                    this.ul.zmniejszPopulacje();
+                    //this.ul.zmniejszPopulacje();
                 }
             }
         } else if (obiekt instanceof Kwiat) {
@@ -269,10 +270,32 @@ public class Plansza {
         this.zgonyWTejTurze = 0;
     }
 
+    /**
+     * Pobiera aktualną populację pszczół zliczaną w obiekcie Ula.
+     *
+     * @return wielkość populacji
+     */
+    public int getPopulacjaUla() {
+        if (ul != null) {
+            return ul.getLiczbaPopulacji();
+        }
+        return 0;
+    }
+
+    /**
+     * Pobiera liczbę narodzin pszczół w aktualnej turze
+     *
+     * @return liczba narodzin w turze
+     */
     public int getNarodzinyWTejTurze() {
         return narodzinyWTejTurze;
     }
 
+    /**
+     * Pobiera liczbę zgonów pszczół w aktualnej turze
+     *
+     * @return liczba zgonów w turze
+     */
     public int getZgonyWTejTurze() {
         return zgonyWTejTurze;
     }
