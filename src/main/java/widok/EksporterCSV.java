@@ -1,4 +1,4 @@
-package kontroler;
+package widok;
 
 
 import java.io.BufferedWriter;

@@ -8,6 +8,12 @@ public class Main {
 
         System.out.println("--- KONFIGURACJA SYMULACJI ---");
 
+        System.out.println("Podaj maksymalna liczbe tur (czas trwania symulacji): ");
+        int maksymalnaLiczbaTur = scanner.nextInt();
+
+        System.out.println("Podaj prawdopodobienstwo pojawienia sie kwiatka (np. 0,3): ");
+        double prawdopodobienstwoKwiatka = scanner.nextDouble();
+
         System.out.println("Podaj poczatkowa ilosc miodu w ulu: ");
         int poczMiod = scanner.nextInt();
 
@@ -25,12 +31,6 @@ public class Main {
 
         System.out.println("Podaj co ile tur ma sie pojawiac nowy szerszen: ");
         int czestotliwoscSzerszeni = scanner.nextInt();
-
-        System.out.print("Podaj prawdopodobienstwo pojawienia sie kwiatka (np. 0,3): ");
-        double prawdopodobienstwoKwiatka = scanner.nextDouble();
-
-        System.out.println("Podaj maksymalna liczbe tur (czas trwania symulacji): ");
-        int maksymalnaLiczbaTur = scanner.nextInt();
 
         System.out.println("--- ROZPOCZECIE SYMULACJI ---");
 
