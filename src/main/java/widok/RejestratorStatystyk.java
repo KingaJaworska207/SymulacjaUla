@@ -19,12 +19,6 @@ public class RejestratorStatystyk {
     /** Zmienna przechowująca historię danych symualcjii */
     private List<String> historiaDanych;
 
-    /** Zmienna przechowująca liczbę zgonów w aktualnej turze */
-    private int liczbaZgonowWTurze;
-
-    /** Zmienna przechowująca liczbę narodzin w aktualnej turze */
-    private int liczbaNarodzinWTurze;
-
     /** Łączna liczba owadów, które zginęły od poczatku trwania symulacji */
     private int liczbaZgonow;
 
@@ -36,8 +30,6 @@ public class RejestratorStatystyk {
 
     public RejestratorStatystyk() {
         this.historiaDanych = new ArrayList<>();
-        this.liczbaZgonowWTurze = 0;
-        this.liczbaNarodzinWTurze = 0;
         this.liczbaZgonow = 0;
         this.liczbaNarodzin = 0;
         this.ostatniaPopulacja = 0;
@@ -86,7 +78,7 @@ public class RejestratorStatystyk {
         this.historiaDanych.add(wiersz);
     }
 
-    public void podsumowanieSymulacji(int tura, Plansza plansza) {
+    public void podsumowanieSymulacji(int tura) {
 
         System.out.println();
         System.out.println("--- PODSUMOWANIE SYMULACJI ---");
@@ -104,6 +96,6 @@ public class RejestratorStatystyk {
      */
     public void zapiszDoPliku(String nazwaPliku) {
         EksporterCSV eksporter = new EksporterCSV();
-        eksporter.eksportujDoPliku(this.historiaDanych, "wyniki_symulacji.csv");
+        eksporter.eksportujDoPliku(this.historiaDanych, nazwaPliku);
     }
 }

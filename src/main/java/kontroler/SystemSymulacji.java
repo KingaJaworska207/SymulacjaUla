@@ -72,7 +72,7 @@ public class SystemSymulacji {
             System.out.println("KONIEC SYMULACJI. - Pszczolom udalo sie przezyc :)");
         }
 
-        rejestrator.podsumowanieSymulacji(tura, plansza);
+        rejestrator.podsumowanieSymulacji(tura);
 
         rejestrator.zapiszDoPliku("wyniki_symulacji.csv");
 

@@ -55,10 +55,6 @@ public abstract class Pszczola extends Owad{
      */
     @Override
     public void wykonajTure(){
-        /*
-        ruch
-        wykonanie akcji
-        */
         wykonajAkcje();
     }
 

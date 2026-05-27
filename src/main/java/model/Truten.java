@@ -45,6 +45,6 @@ public class Truten extends Pszczola{
      */
     @Override
     public void ruch(int x, int y) {
-        // Ta metoda pozostanie pusta, ponieważ truteń nie wykonuje żadnego ruchu (pozostaje w ulu)
+        // Ta metoda pozostaje pusta, ponieważ truteń nie wykonuje żadnego ruchu (pozostaje w ulu)
     }
 }
