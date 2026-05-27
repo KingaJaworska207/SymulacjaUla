@@ -79,9 +79,9 @@ public class RejestratorStatystyk {
         System.out.println("-------------------------");
 
         String wiersz = tura + ";" + plansza.getPoziomMiodu() + ";" +
-                lRobotnic + ";" + ostatniaPopulacja + ";" + lStrazniczek + ";" + lTrutni + ";" +
+                ostatniaPopulacja + ";" + lRobotnic + ";" + lStrazniczek + ";" + lTrutni + ";" +
                 lKrolowych + ";" + lSzerszeni + ";" +
-                plansza.getZgonyWTejTurze() + ";" + plansza.getNarodzinyWTejTurze();
+                plansza.getNarodzinyWTejTurze() + ";" + plansza.getZgonyWTejTurze();
 
         this.historiaDanych.add(wiersz);
     }

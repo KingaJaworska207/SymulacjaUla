@@ -130,7 +130,7 @@ public class Plansza {
         } while (czyPoleZajete(x, y) && proby < 100);
 
         if (!czyPoleZajete(x, y)){
-            Kwiat nowyKwiat = new Kwiat(x, y, 1);
+            Kwiat nowyKwiat = new Kwiat(x, y, random.nextInt(2)+1);
             siatka[x][y] = nowyKwiat;
             this.kwiaty.add(nowyKwiat);
         }

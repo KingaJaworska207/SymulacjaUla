@@ -13,7 +13,7 @@ public class Kwiat extends Obiekt{
     private boolean zebrany;
 
     /**
-     * Tworzy nowy kwiat na podanych współrzędnych oraz z konkretną ilościa nektaru.
+     * Tworzy nowy kwiat na podanych współrzędnych oraz z konkretną ilościa nektaru (1 lub 2).
      * Domyślnie kwait nie jest zebrany.
      *
      * @param x
@@ -53,6 +53,7 @@ public class Kwiat extends Obiekt{
      * @return true jeżeli jest zebrany, false jeżeli nie jest jeszcze zebrany
      */
     public boolean czyZebrany(){
+
         return zebrany;
     }
 
