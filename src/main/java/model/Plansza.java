@@ -185,7 +185,6 @@ public class Plansza {
             if(aktywneOwady.remove(obiekt)){
                 if(obiekt instanceof Pszczola ){
                     this.zgonyWTejTurze++;
-                    //this.ul.zmniejszPopulacje();
                 }
             }
         } else if (obiekt instanceof Kwiat) {

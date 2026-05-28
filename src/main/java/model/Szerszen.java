@@ -7,7 +7,6 @@ import java.util.Random;
  * Dziedziczy po klasie Owad.
  * Odpowiada za eliminowanie napotkanych pszczół.
  */
-
 public class Szerszen extends Owad{
 
     /** Generator liczb losowych */

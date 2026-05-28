@@ -18,7 +18,7 @@ public class SystemSymulacji {
     /** Aktualny numer tury symulacjii */
     private int tura;
 
-    /** Szansa na pojawienie się nowego kwiatka na planszy w danej turze (wartość od 0.0 do 0.1) */
+    /** Szansa na pojawienie się nowego kwiatka na planszy w danej turze (wartość od 0.0 do 1.0) */
     private double prawdopodobienstwoKwiatka;
 
     /** Określa co ile tur pojawia się nowy szerszeń */

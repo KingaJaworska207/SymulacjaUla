@@ -5,7 +5,6 @@ package model;
  * Dziedziczy po klasie Obiekt, dzięki czemu każdy owad posiada pozycję (x, y).
  * Przechowuje również stan życia owada.
  */
-
 public abstract class Owad extends Obiekt {
     /** Określa stan życia owada */
     private boolean zyje;

@@ -4,7 +4,6 @@ package model;
  * Klasa abstrakcyjna reprezentująca dowolną pszczołe.
  * Dziedziczy po klasie Owad. Rozszerza ją o specyficzne dla pszczół akcje.
  */
-
 public abstract class Pszczola extends Owad{
 
     /** Referencja do ula, do którego należy dana pszczoła. */

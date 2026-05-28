@@ -5,8 +5,8 @@ package model;
  * Dziedziczy po klasie Pszczola.
  * Odpowiada za zbieranie nektaru z kwiatów i zanoszenie go do ula.
  */
-
 public class Robotnica extends Pszczola{
+
     /** Określa czy robotnica ma zebrany nektar */
     private boolean maNektar;
 
@@ -91,8 +91,6 @@ public class Robotnica extends Pszczola{
 
         return przekazanaIlosc;
     }
-
-
 
     /**
      * Wykonanie przypisanej dla robotnicy akcji w danej turze.

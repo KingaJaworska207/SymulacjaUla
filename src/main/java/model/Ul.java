@@ -52,6 +52,7 @@ public class Ul extends Obiekt{
      * @param ilosc ilość nektaru przekazanego przez Robotnicę do ula
      */
     public void dodajMiod(int ilosc){
+
         this.iloscMiodu += ilosc;
     }
 
