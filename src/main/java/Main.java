@@ -2,7 +2,22 @@ import kontroler.SystemSymulacji;
 
 import java.util.Scanner;
 
+/**
+ * Klasa odpowiadająca za pobranie parametrów początkowych od użytkownika i uruchomienie symulacji.
+ */
 public class Main {
+    /**
+     * Domyślny konstruktor tworzący obiekt klasy Main.
+     */
+    public Main() {
+    }
+
+    /**
+     * Główna metoda uruchamiająca symulację.
+     * Odpowaida za pobranie początkowaych parametrów od użytkownika.
+     *
+     * @param args argumenty wiersza poleceń przekazywane przy starcie programu (obecnie nieużywane)
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

@@ -12,6 +12,12 @@ import java.util.List;
 public class EksporterCSV {
 
     /**
+     * Domyślny konstruktor tworzący obiekt klasy EksporterCSV.
+     */
+    public EksporterCSV() {
+    }
+
+    /**
      * Zapisuje przekazaną listę danych jako nowe wiersze w określonym pliku CSV.
      *
      * @param wierszeDanych lista ciągów znaków (String), gdzie każdy element reprezentuje jeden wiersz danych do zapisu
