@@ -1,0 +1,43 @@
+name: Automatyczne Testy Symulacji Ula i Pokrycie Kodu
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Pobranie kodu
+        uses: actions/checkout@v4
+
+      - name: Konfiguracja JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: 'gradle'
+
+      - name: Nadanie uprawnień gradlew
+        run: chmod +x gradlew
+
+      - name: Uruchomienie testów i generowanie raportu JaCoCo
+        run: ./gradlew test jacocoTestReport
+
+      # 5. [Opcjonalnie] Zapisanie raportów jako artefaktów do pobrania na GitHubie
+      - name: Zapisz raporty z testów jako pliki
+        if: always() # Wykona się nawet wtedy, gdy jakiś test nie przejdzie
+        uses: actions/upload-artifact@v4
+        with:
+          name: Raport-Testow
+          path: build/reports/tests/test/
+
+      - name: Zapisz raport pokrycia JaCoCo jako plik
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Raport-Pokrycia-JaCoCo
+          path: build/reports/jacoco/test/html/
