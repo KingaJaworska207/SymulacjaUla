@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    id("jacoco")
 }
 
 group = "org.example"
@@ -15,6 +16,15 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
-tasks.test {
+tasks.named<Test>("test") {
     useJUnitPlatform()
+    finalizedBy("jacocoTestReport")
+}
+
+tasks.named<JacocoReport>("jacocoTestReport") {
+    dependsOn("test")
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
 }
