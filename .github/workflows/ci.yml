@@ -27,9 +27,8 @@ jobs:
       - name: Uruchomienie testów i generowanie raportu JaCoCo
         run: ./gradlew test jacocoTestReport
 
-      # 5. [Opcjonalnie] Zapisanie raportów jako artefaktów do pobrania na GitHubie
       - name: Zapisz raporty z testów jako pliki
-        if: always() # Wykona się nawet wtedy, gdy jakiś test nie przejdzie
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: Raport-Testow
