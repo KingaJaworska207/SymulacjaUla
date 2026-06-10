@@ -56,4 +56,51 @@ Dokumantacja w formie plików `*.html`, wygenerowana za pomocą Javadoc, znajduj
 
 ## Diagramy UML
 
+### Diagram klas
+![diagram klas](https://github.com/KingaJaworska207/SymulacjaUla/blob/master/images/DiagramKlas(updated).png)
+
+### Diagramy obiektów
+- diagram dla tury 0
+  
+![diagram obiektów tura 0](https://github.com/KingaJaworska207/SymulacjaUla/blob/master/images/DiagramObjekt%C3%B3wTura0-1.png)
+
+- diagram dla tury 10
+  
+![diagram obiektów tura 10](https://github.com/KingaJaworska207/SymulacjaUla/blob/master/images/DiagramObjekt%C3%B3wTura10-1.png)
+
+### Diagramy sekwencji
+- diagram cyklu ula
+
+![diagram cyklu ula](https://github.com/KingaJaworska207/SymulacjaUla/blob/master/images/cykl%20w%20ulu.jpg)
+
+- diagram pracy robotnicy
+
+![diagram pracy robotnicy](https://github.com/KingaJaworska207/SymulacjaUla/blob/master/images/robotnica.jpg)
+
+- diagram reprodukcji
+
+![diagram reprodukcji](https://github.com/KingaJaworska207/SymulacjaUla/blob/master/images/reprodukcja.jpg)
+
+- diagram jedzenia miodu przez trutnia
+
+![diagram trutnia](https://github.com/KingaJaworska207/SymulacjaUla/blob/master/images/trute%C5%84.jpg)
+
+- diagram walki strażniczki
+
+![diagram strażniczki](https://github.com/KingaJaworska207/SymulacjaUla/blob/master/images/walka%20stra%C5%BCniczki.jpg)
+
+- diagram ataku szerszenia
+
+![diagram szerszenia](https://github.com/KingaJaworska207/SymulacjaUla/blob/master/images/atak%20szerszenia.jpg)
+
+### Diagramy stanów
+![diagram](https://github.com/KingaJaworska207/SymulacjaUla/blob/master/images/Zrzut%20ekranu%202026-06-10%20225221.png)
+![diagram](https://github.com/KingaJaworska207/SymulacjaUla/blob/master/images/Zrzut%20ekranu%202026-06-10%20225231.png)
+![diagram](https://github.com/KingaJaworska207/SymulacjaUla/blob/master/images/Zrzut%20ekranu%202026-06-10%20225252.png)
+![diagram](https://github.com/KingaJaworska207/SymulacjaUla/blob/master/images/Zrzut%20ekranu%202026-06-10%20225707.png)
+![diagram](https://github.com/KingaJaworska207/SymulacjaUla/blob/master/images/Zrzut%20ekranu%202026-06-10%20225711.png)
+![diagram](https://github.com/KingaJaworska207/SymulacjaUla/blob/master/images/Zrzut%20ekranu%202026-06-10%20225723.png)
+![diagram](https://github.com/KingaJaworska207/SymulacjaUla/blob/master/images/Zrzut%20ekranu%202026-06-10%20225729.png)
+![diagram](https://github.com/KingaJaworska207/SymulacjaUla/blob/master/images/Zrzut%20ekranu%202026-06-10%20225751.png)
+![diagram](https://github.com/KingaJaworska207/SymulacjaUla/blob/master/images/Zrzut%20ekranu%202026-06-10%20225755.png)
 ## Przykładowe wykresy statystyk
