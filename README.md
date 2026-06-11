@@ -103,4 +103,3 @@ Dokumantacja w formie plików `*.html`, wygenerowana za pomocą Javadoc, znajduj
 ![diagram](https://github.com/KingaJaworska207/SymulacjaUla/blob/master/images/Zrzut%20ekranu%202026-06-10%20225729.png)
 ![diagram](https://github.com/KingaJaworska207/SymulacjaUla/blob/master/images/Zrzut%20ekranu%202026-06-10%20225751.png)
 ![diagram](https://github.com/KingaJaworska207/SymulacjaUla/blob/master/images/Zrzut%20ekranu%202026-06-10%20225755.png)
-## Przykładowe wykresy statystyk
